@@ -5,18 +5,21 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
 import { RouterModule, Routes } from '@angular/router';
+import { HeaderComponent } from './main/header/header.component';
 
 const appRoutes: Routes = [
   { path: 'login',  component: LoginComponent },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: '**',  component: MainComponent }
+  { path: 'bikes',  component: MainComponent },
+  { path: '**',  redirectTo: 'bikes', pathMatch: 'full' }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    MainComponent
+    MainComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
