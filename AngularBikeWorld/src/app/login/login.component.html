@@ -14,11 +14,20 @@
       <h1>Mechokart</h1>
       <div>
         <form [formGroup] = "loginFormGroup">
-          <label for="username">Username:</label>
-          <input type = "text" id = "username" formControlName = "username" class = "form-input">
-          <label for="username">Password:</label>
-          <input type = "text" id = "password" formControlName = "password" class = "form-input">
+          <div>
+            <label for="username">Username:</label>
+            <input type = "text" id = "username" formControlName = "username" class = "form-input">
+          </div>
+          <div>
+            <label for="username">Password:</label>
+            <input type = "text" id = "password" formControlName = "password" class = "form-input">
+          </div>
+          <div>
+            <button>Login</button>
+            <button>Cancel</button>
+          </div>
         </form>
+        <p>Value: {{ loginFormGroup.value }}</p>
       </div>
     </div>
   </div>
