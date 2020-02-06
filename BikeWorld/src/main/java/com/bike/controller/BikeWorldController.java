@@ -15,7 +15,7 @@ public class BikeWorldController {
 	public BikeWorldResponse login(@RequestBody User user) {
 		System.out.println("Got request");
 		BikeWorldResponse response = new BikeWorldResponse();
-		if (user.getUsername().equals("username") && user.getPassword().equals("password")) {
+		if (user.getUsername().equals("sekars") && user.getPassword().equals("password")) {
 			response.setStatus(true);
 			response.setMessage("Success");
 			response.setToken("JWT Token");
