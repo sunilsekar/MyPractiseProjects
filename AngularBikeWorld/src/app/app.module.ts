@@ -11,8 +11,8 @@ import { HeaderComponent } from './main/header/header.component';
 const appRoutes: Routes = [
   { path: 'login',  component: LoginComponent },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'bikes',  component: MainComponent },
-  { path: '**',  redirectTo: 'bikes', pathMatch: 'full' }
+  { path: 'home',  component: MainComponent },
+  { path: '**',  redirectTo: 'home', pathMatch: 'full' }
 ];
 
 @NgModule({

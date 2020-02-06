@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,7 +9,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   loginFormGroup: FormGroup;
 
@@ -20,7 +21,13 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin() {
-    
+    console.log(this.loginFormGroup.controls["username"].value);
+    if (this.loginFormGroup.controls["username"].value == "sekars" && this.loginFormGroup.controls["password"].value == "password") {
+      console.log("Login success!");
+      this.router.navigate(["/home"]);
+    } else {
+      console.log("Login failed!");
+    }
   }
 
 }

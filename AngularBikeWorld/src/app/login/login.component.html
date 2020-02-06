@@ -15,19 +15,18 @@
       <div>
         <form [formGroup] = "loginFormGroup">
           <div>
-            <label for="username">Username:</label>
-            <input type = "text" id = "username" formControlName = "username" class = "form-input">
+            <label for="username">Username </label>
+            <input type = "text" id = "username" formControlName = "username" class = "form-input" required>
           </div>
           <div>
-            <label for="username">Password:</label>
-            <input type = "text" id = "password" formControlName = "password" class = "form-input">
+            <label for="username">Password </label>
+            <input type = "password" id = "password" formControlName = "password" class = "form-input" required>
           </div>
           <div>
-            <button>Login</button>
+            <button [disabled] = loginFormGroup.invalid (click) = onLogin()>Login</button>
             <button>Cancel</button>
           </div>
         </form>
-        <p>Value: {{ loginFormGroup.value }}</p>
       </div>
     </div>
   </div>
