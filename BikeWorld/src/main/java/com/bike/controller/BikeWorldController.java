@@ -1,5 +1,6 @@
 package com.bike.controller;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -9,6 +10,7 @@ import com.bike.dto.BikeWorldResponse;
 import com.bike.dto.User;
 
 @RestController
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class BikeWorldController {
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)

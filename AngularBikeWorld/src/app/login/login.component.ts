@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { HttpService } from '../services/http.service';
+import { Response } from '../models/response.model';
 
 @Component({
   selector: 'app-login',
@@ -9,9 +11,10 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private httpService: HttpService) { }
 
   loginFormGroup: FormGroup;
+  loginResponse: Response;
 
   ngOnInit() {
     this.loginFormGroup = new FormGroup({
@@ -21,9 +24,14 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin() {
-    console.log(this.loginFormGroup.controls["username"].value);
-    if (this.loginFormGroup.controls["username"].value == "sekars" && this.loginFormGroup.controls["password"].value == "password") {
-      console.log("Login success!");
+    this.httpService.postLogin(this.loginFormGroup.value).subscribe(response => this.loginResponse = {
+      status: response.status,
+      message: response.message,
+      token: response.token
+    });
+    //console.log("onLogin :: " + this.loginResponse.message);
+    if (this.loginResponse.status) {
+      console.log("Login successful!");
       this.router.navigate(["/home"]);
     } else {
       console.log("Login failed!");
