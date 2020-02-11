@@ -32,4 +32,8 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  onCancel() {
+    this.loginFormGroup.reset();
+  }
+
 }
